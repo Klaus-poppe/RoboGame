@@ -1,0 +1,87 @@
+
+<div class="container"  style= "padding:2rem">
+  <div class="row">
+  <div class="col-md-6" >
+      <input type = "text"  [(ngModel)]="kind" name = "kind">
+       <button (click)="getTroop()" class="btn btn-dark" style= "margin:1rem">get a troop</button>
+       <button (click)="getTroops()" class="btn btn-dark" style= "margin:1rem">get all troops</button><br><br><br>
+  </div>
+  <div class="col-md-6">
+
+
+
+  <input type = "text"  [(ngModel)]="troop1.kind"  class="form-control" name = "kind" placeholder="kind" ><br>
+  <input type = "text"  [(ngModel)]="troop1.description"  class="form-control" name = "description" placeholder="description" ><br>
+  <input type = "text"  [(ngModel)]="troop1.strength"   class="form-control" name = "strength" placeholder="strength" ><br>
+  <input type = "text"  [(ngModel)]="troop1.intelligence"   class="form-control" name = "intelligence" placeholder="intelligence" ><br>
+  <input type = "text"  [(ngModel)]="troop1.agility"   class="form-control" name = "agility" placeholder="agility" ><br>
+  <input type = "text"  [(ngModel)]="troop1.terrain"   class="form-control" name = "terrain" placeholder="terrain" ><br>
+  <input type = "text"  [(ngModel)]="troop1.type"   class="form-control" name = "type" placeholder="type"><br>
+
+  <button (click)="addTroop()"  class="form-control btn btn-dark">add troop</button><br>
+    </div>  
+</div>
+<div *ngIf = "display1" >
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Kind</th>
+                <th scope="col">Description</th>
+                <th scope="col">strength</th>
+                <th scope="col">agility</th>
+                <th scope="col">intelligence</th>
+                <th scope="col">terrain</th>
+                <th scope="col">type</th>
+              
+              </tr>
+            </thead>
+            <tbody  *ngFor = "let troop of troops">
+              <tr>
+                <th scope="row">{{troop.id}}</th>
+                <td>{{troop.kind}}</td>
+                <td> {{troop.description}}</td>
+                <td> {{troop.strength}}</td>
+                <td> {{troop.agility}}</td>
+                <td>  {{troop.intelligence}}</td>
+                <td>  {{troop.terrain}}</td>
+                <td>  {{troop.type}}</td>
+              </tr>
+            </tbody>
+          </table>
+  </div>
+
+  <div *ngIf = "display" >
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Kind</th>
+              <th scope="col">Description</th>
+              <th scope="col">strength</th>
+              <th scope="col">agility</th>
+              <th scope="col">intelligence</th>
+              <th scope="col">terrain</th>
+              <th scope="col">type</th>
+      
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>{{troop.kind}}</td>
+              <td> {{troop.description}}</td>
+              <td> {{troop.strength}}</td>
+              <td> {{troop.agility}}</td>
+              <td>  {{troop.intelligence}}</td>
+              <td>  {{troop.terrain}}</td>
+              <td>  {{troop.type}}</td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+</div>
+
+
+
+ 
