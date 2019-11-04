@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TroopService, Troop } from 'src/services/troop.service';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +9,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 export class AppComponent {
 
   constructor(public data:TroopService) {    }
-  kind ="test"
+  kind =""
   display:Boolean =false
   display1:Boolean =false
   troops : Troop[]
@@ -25,7 +24,7 @@ export class AppComponent {
     terrain : null,
     type : null
   };
-  troop1Form : FormGroup;
+
 
   getTroop(){
     this.data.getTroop(this.kind).subscribe(
