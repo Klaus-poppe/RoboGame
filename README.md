@@ -14,6 +14,7 @@
 
 * go to frontend folder and in terminal 
 >run `npm install` to install the dependencies
+
 >run `ng serve` to run the app
 
 * Go to `http://localhost:4200` in your browser
