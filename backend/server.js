@@ -6,7 +6,10 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })); 
 
-var troops;
+var clones
+var droids
+var troops
+var battles
 
 //endpoint for getting all troops
 app.route('/troops').get((req, res) => {
@@ -16,6 +19,26 @@ app.route('/troops').get((req, res) => {
    troops =result;
   });
   res.send(troops)
+})
+
+app.route('/troops/droid').get((req, res) => {
+  sql = "SELECT * FROM `troops` where `type` = 'droid army'"
+  
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+  droids =result;
+  });
+  res.send(droids)
+})
+
+app.route('/troops/clone').get((req, res) => {
+  sql = "SELECT * FROM `troops` where `type` = 'clone trooper'"
+  
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+   clones =result;
+  });
+  res.send(clones)
 })
 
 //endpoint to get a specific troop
@@ -67,6 +90,26 @@ app.route('/troops/:id').put((req, res) => {
       if (err) throw err;
     });
     res.sendStatus(204)
+})
+
+
+app.route('/battles/add').post((req, res) => {
+  var battle = req.body
+  sql =`INSERT INTO battles(winner, summary) VALUES ("`+battle.winner+`","`+battle.summary+`")`
+  
+    con.query(sql, function (err, result) {
+      if (err) throw err;
+    });
+  res.status(200).send("success")
+})
+
+app.route('/battles').get((req, res) => {
+  sql = "SELECT * FROM `battles`"
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+   battles = result;
+  });
+  res.send(battles)
 })
 
 

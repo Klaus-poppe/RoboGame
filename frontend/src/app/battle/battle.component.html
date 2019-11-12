@@ -1,0 +1,146 @@
+
+<app-navbar></app-navbar>
+<div *ngIf="result">
+  <app-result [winner]="winner" [summary]="summary"></app-result>
+</div>
+
+<div *ngIf="display" class="containor-fluid">
+   
+    <div class="row my-3 mx-auto" style="width : 200px; display:block">
+        <button type="button" (click)="calcResult()" class="btn btn-lg btn-success">Start</button>
+         
+    </div>
+
+
+  <div class="row">
+    <div class="col-md-6">
+        <div class="shadow-lg p-3 m-3 bg-white rounded">
+          <h3>Droid army</h3>
+
+          <div class="card-columns">
+             
+              <div class="card">
+                  <img src="src/assets/droid army/B2-RP-battle-droid-SWBF2.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">B2 Super battle droids</h5>
+                  </div>
+                </div>
+
+              <div class="card">
+                  <img src="src/assets/droid army/AAT_BF2.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Armored Assault Tank</h5>
+                  </div>
+                </div>
+            
+              <div class="card">
+                <img src="src/assets/droid army/SepAAT.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Armored Assault Tank</h5>
+                </div>
+                
+              </div>
+
+
+              <div class="card">
+                  <img src="src/assets/droid army/b1battledroid.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">B1 Battle droids</h5>
+                  </div>
+                </div>
+            
+          
+
+      </div>
+
+        </div>  
+
+
+    </div>
+
+
+
+    <div class="col-md-6">
+      <div class="shadow-lg p-3 m-3 bg-white rounded">
+          <h3>Clone army</h3>
+
+          <div class="card-columns">
+             
+                        
+              <div class="card">
+                  <img src="src/assets/ARCTrooper-CotR.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">ARC</h5>
+                    <p>Strength : 6</p>
+                    <p>Intelligence : 5</p>
+                    <p>Agility : 3</p>
+                    <input placeholder="Enter no. of troops" (input)="cloneSummary()" [(ngModel)] = "arc" type="text" class = "form-control">
+                  </div>
+                </div>
+  
+                <div class="card">
+                  <img src="src/assets/Clone_Commander_CotR.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Ordnance Specialists</h5>
+                    <p>Strength : 9</p>
+                    <p>Intelligence : 4</p>
+                    <p>Agility : 7</p>
+                    <input placeholder="Enter no. of troops" (input)="cloneSummary()" [(ngModel)] = "ordnance" type="text" class = "form-control">
+                  </div>
+                </div>
+              
+                <div class="card">
+                  <img src="src/assets/KixFull-SWE.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Jetpack troopers</h5>
+                    <p>Strength : 8</p>
+                    <p>Intelligence : 4</p>
+                    <p>Agility : 8</p>
+                    <input placeholder="Enter no. of troops" (input)="cloneSummary()" [(ngModel)] = "jetpack" type="text" class = "form-control">
+                  </div>
+                  
+                </div>
+                <div class="card" >
+                  <img src="src/assets/CloneSCUBAtrooper-TCWs4BR1.png"  class="card-img-top"  alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">SCUBA troopers</h5>
+                    <p>Strength : 4</p>
+                    <p>Intelligence : 7</p>
+                    <p>Agility : 3</p>
+                    <input placeholder="Enter no. of troops" (input)="cloneSummary()" [(ngModel)] = "scuba" type="text" class = "form-control">
+                  </div>
+                </div>
+                <div class="card" >
+                    <img src="src/assets/PhaseICloneTrooper2-Fathead.png"  class="card-img-top"  alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Sharpshooters</h5>
+                      <p>Strength : 2</p>
+                      <p>Intelligence : 8</p>
+                      <p>Agility : 7</p>
+                      <input placeholder="Enter no. of troops" (input)="cloneSummary()" [(ngModel)] = "sharpshooter"  type="text" class = "form-control">
+                    </div>
+                  </div>
+
+                  <div class="card" >
+                      <div class="card-body">
+                        <p class="text-warning">Total no. of troops should be less than or equal to 100</p>
+                        <h5 class="card-title">Total : <span>{{total}}</span></h5>
+                        <p>Strength : <span>{{totalStrength}}</span></p>
+                        <p>Intelligence : <span>{{totalIntelligence}}</span></p>
+                        <p>Agility : <span>{{totalAgility}}</span></p>
+                      </div>
+                    </div>
+              
+    
+          </div>
+
+
+      </div>  
+
+
+    </div>
+
+
+  
+  </div>
+</div>

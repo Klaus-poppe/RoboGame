@@ -1,0 +1,206 @@
+
+<div class="modal fade" id="addBook" tabindex="-1" role="dialog" aria-labelledby="addBook" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header border bg-dark">
+          <h5 class="modal-title text-light" id="exampleModalLongTitle">Add Troop</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="text-light" >&times;</span>
+          </button>
+        </div>
+    
+        <div class="modal-body">
+         <div class="form-group">
+      <label>Kind:</label>
+      <input type = "text"  [(ngModel)]="troop1.kind"  class="form-control" name = "kind" placeholder="kind" >
+    </div>
+        <div class="form-group">
+      <label>Description:</label>
+      <input type = "text"  [(ngModel)]="troop1.description"  class="form-control" name = "description" placeholder="description" >
+    </div>
+        <div class="form-group">
+      <label>Strength:</label>
+      <input type = "text"  [(ngModel)]="troop1.strength"   class="form-control" name = "strength" placeholder="strength" >
+    </div>
+    <div class="form-group">
+        <label>Intelligence:</label>
+        <input type = "text"  [(ngModel)]="troop1.intelligence"   class="form-control" name = "intelligence" placeholder="intelligence" >
+      </div>
+      <div class="form-group">
+          <label>Agility:</label>
+          <input type = "text"  [(ngModel)]="troop1.agility"   class="form-control" name = "agility" placeholder="agility" >
+        </div>  
+        <div class="form-group">
+            <label>Terrain:</label>
+            <input type = "text"  [(ngModel)]="troop1.terrain"   class="form-control" name = "terrain" placeholder="terrain" >
+          </div>  	
+
+          <div class="form-group">
+              <label>Type:</label>
+              <input type = "text"  [(ngModel)]="troop1.type"   class="form-control" name = "type" placeholder="type">
+            </div>    
+                 
+        </div>						
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <input (click)="addTroop()" type="submit"
+                value="Add Troop" class="btn btn-dark" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-navbar></app-navbar>
+  
+
+<div class="container-fluid" >
+      <div class="row">
+
+        <div class="col-md-6"  style="margin-top: 1%" >
+          <div class="scroll"> 
+            <div *ngIf = "display1" >
+                <table class="table table-light table-striped table-hover " >
+                    <thead class="thead-dark">
+                      <tr>
+                          <th scope="col" colspan = 10 >
+                              Clone Army
+                              </th>
+                      </tr>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Kind</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">strength</th>
+                        <th scope="col">agility</th>
+                        <th scope="col">intelligence</th>
+                        <th scope="col">terrain</th>
+                        <th scope="col">type</th>
+                        <th scope="col">  Options </th>
+                      </tr>
+        
+                    </thead>
+                    <tbody  *ngFor = "let troop of clones">
+                      <tr>
+                        <th scope="row">{{troop.id}}</th>
+                        <td><textarea class="form-control " id= "tableData" type = "text" [(ngModel)]="troop.kind" >{{troop.kind}}</textarea></td>
+                        <td><textarea class="form-control " id= "tableData" type = "text" [(ngModel)]="troop.description" >{{troop.description}}</textarea> </td>
+                        <td><input class="form-control " id= "tableData2" type = "text" [(ngModel)]="troop.strength" value ="{{troop.strength}}"> </td>
+                        <td><input class="form-control " id= "tableData2" type = "text" [(ngModel)]="troop.agility" value ="{{troop.agility}}"> </td>
+                        <td><input class="form-control " id= "tableData2" type = "text" [(ngModel)]="troop.intelligence" value ="{{troop.intelligence}}">  </td>
+                        <td> <textarea class="form-control " id= "tableData" type = "text" [(ngModel)]="troop.terrain" >{{troop.terrain}}</textarea></td>
+                        <td> <textarea class="form-control"  id= "tableData" type = "text" [(ngModel)]="troop.type" > {{troop.type}}</textarea> </td>
+                        <td>   
+                            <button (click)="updateTroop(troop)" value="Update" class="btn btn-outline-dark" 
+                            tabindex="0"  data-placement="top"
+                            data-toggle="popover" data-trigger="hover" title="Update entry" 
+                            data-content="Edit the field u wish to change and press this button">
+                            <i class="fas fa-user-edit" ></i></button>
+                            <button style="margin : 1rem" (click)="deleteTroop(troop.id)" value="Remove" class="btn btn-outline-dark" ><i class="fas fa-trash-alt"></i></button>		
+                        </td>
+        
+                      </tr>
+                    </tbody>
+                  </table>
+          </div>
+        </div>
+        </div>
+
+
+        <div class="col-md-6" style="margin-top: 1%"  >
+            <div class="scroll"> 
+            <div *ngIf = "display1" >
+                <table class="table table-light table-striped table-hover " >
+                    <thead class="thead-dark">
+                      <tr>
+                          <th scope="col" colspan = 10 >
+                              Droid Army
+                              </th>
+                      </tr>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Kind</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">strength</th>
+                        <th scope="col">agility</th>
+                        <th scope="col">intelligence</th>
+                        <th scope="col">terrain</th>
+                        <th scope="col">type</th>
+                        <th scope="col">  Options </th>
+                      </tr>
+        
+                    </thead>
+                    <tbody  *ngFor = "let troop of droids">
+                      <tr>
+                        <th scope="row">{{troop.id}}</th>
+                        <td><textarea class="form-control " id= "tableData" type = "text" [(ngModel)]="troop.kind" >{{troop.kind}}</textarea></td>
+                        <td><textarea class="form-control " id= "tableData" type = "text" [(ngModel)]="troop.description" >{{troop.description}}</textarea> </td>
+                        <td><input class="form-control " id= "tableData2" type = "text" [(ngModel)]="troop.strength" value ="{{troop.strength}}"> </td>
+                        <td><input class="form-control " id= "tableData2" type = "text" [(ngModel)]="troop.agility" value ="{{troop.agility}}"> </td>
+                        <td><input class="form-control " id= "tableData2" type = "text" [(ngModel)]="troop.intelligence" value ="{{troop.intelligence}}">  </td>
+                        <td> <textarea class="form-control " id= "tableData" type = "text" [(ngModel)]="troop.terrain" >{{troop.terrain}}</textarea></td>
+                        <td> <textarea class="form-control"  id= "tableData" type = "text" [(ngModel)]="troop.type" > {{troop.type}}</textarea> </td>
+                        <td>   
+                            <button (click)="updateTroop(troop)" value="Update" class="btn btn-outline-dark" 
+                            tabindex="0"  data-placement="top"
+                            data-toggle="popover" data-trigger="hover" title="Update entry" 
+                            data-content="Edit the field u wish to change and press this button">
+                            <i class="fas fa-user-edit" ></i></button>
+                            <button style="margin : 1rem" (click)="deleteTroop(troop.id)" value="Remove" class="btn btn-outline-dark" ><i class="fas fa-trash-alt"></i></button>		
+                        </td>
+        
+                      </tr>
+                    </tbody>
+                  </table>
+          </div>
+        
+        </div>
+        </div>
+
+
+      </div>
+      
+      <div *ngIf = "display" >
+          <table class="table table-light table-striped table-hover border " >
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Kind</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">strength</th>
+                  <th scope="col">agility</th>
+                  <th scope="col">intelligence</th>
+                  <th scope="col">terrain</th>
+                  <th scope="col">type</th>
+                  <th scope="col">  Options </th>
+                </tr>
+    
+              </thead>
+              <tbody>
+                  <tr>
+                      <th scope="row">{{troop.id}}</th>
+                      <td><textarea class="form-control " id= "tableData" type = "text" [(ngModel)]="troop.kind" >{{troop.kind}}</textarea></td>
+                      <td><textarea class="form-control " id= "tableData" type = "text" [(ngModel)]="troop.description" >{{troop.description}}</textarea> </td>
+                      <td><input class="form-control " id= "tableData2" type = "text" [(ngModel)]="troop.strength" value ="{{troop.strength}}"> </td>
+                      <td><input class="form-control " id= "tableData2" type = "text" [(ngModel)]="troop.agility" value ="{{troop.agility}}"> </td>
+                      <td><input class="form-control " id= "tableData2" type = "text" [(ngModel)]="troop.intelligence" value ="{{troop.intelligence}}">  </td>
+                      <td> <textarea class="form-control " id= "tableData" type = "text" [(ngModel)]="troop.terrain" >{{troop.terrain}}</textarea></td>
+                      <td> <textarea class="form-control"  id= "tableData" type = "text" [(ngModel)]="troop.type" > {{troop.type}}</textarea> </td>
+                      <td>   
+                          <button (click)="updateTroop(troop)" value="Update" class="btn btn-outline-dark" 
+                          tabindex="0"  data-placement="top"
+                          data-toggle="popover" data-trigger="hover" title="Update entry" 
+                          data-content="Edit the field u wish to change and press this button">
+                          <i class="fas fa-user-edit" ></i></button>
+                          <button style="margin : 1rem" (click)="deleteTroop(troop.id)" value="Remove" class="btn btn-outline-dark" ><i class="fas fa-trash-alt"></i></button>		
+                      </td>
+      
+                    </tr>
+              </tbody>
+            </table>
+      </div>
+</div>
+
+
+ 
+
+

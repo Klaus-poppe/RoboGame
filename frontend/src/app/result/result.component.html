@@ -1,0 +1,13 @@
+
+<div class="containor">
+  <div class="row" class="mx-auto">
+    <div class="col-md-6">
+        <div class="shadow p-3 m-4 bg-white rounded">
+          <h2 class="text-secondary">Result:</h2>
+            <h4 *ngIf="winner == 'Clone Troopers Win!!!!'" class="text-success">{{winner}}</h4>
+            <h4 *ngIf="winner == 'Droid army wins!'" class="text-danger">{{winner}}</h4>
+            <div>{{summary}}</div>
+        </div>
+    </div>
+  </div>
+</div>
